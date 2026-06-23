@@ -12,7 +12,7 @@ function addToCart() {
   }
 }
 
-// The HTML button element might actually have id="add-cart", not "add-to-cart-btn".
-// Reverting the JavaScript to query "add-cart" to match the likely HTML ID,
-// as the button is currently non-functional with 'add-to-cart-btn'.
+// BUG: wrong button id. The HTML uses id="add-to-cart-btn" but this line
+// queries "add-cart". getElementById returns null, addEventListener throws,
+// and the button does nothing. Fix: change "add-cart" to "add-to-cart-btn".
 document.getElementById("add-cart").addEventListener("click", addToCart);
